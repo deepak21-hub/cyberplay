@@ -253,7 +253,7 @@ const PlayerWindow: React.FC<PlayerWindowProps> = ({ player, deviceId, onLogout,
               <div className="flex-1 bg-black border-4 border-gray-600 p-3 sm:p-4 font-mono text-xs sm:text-sm relative overflow-hidden flex flex-col shadow-[inset_0_0_20px_rgba(0,0,0,0.8)] min-h-[200px]">
                   {/* Header */}
                   <div className="flex justify-between text-gray-500 border-b border-gray-800 mb-2 pb-2 text-[10px] sm:text-xs tracking-wider">
-                     <span>> GEMINI_CORE</span>
+                     <span>&gt; GEMINI_CORE</span>
                      <span>READ_ONLY</span>
                   </div>
 
@@ -265,7 +265,7 @@ const PlayerWindow: React.FC<PlayerWindowProps> = ({ player, deviceId, onLogout,
                           </p>
                       ))}
                       <div className="flex items-center gap-1 text-[#00f0ff]">
-                          <span>></span>
+                          <span>&gt;</span>
                           <span className="w-2 h-4 bg-[#00f0ff] animate-pulse"></span>
                       </div>
                   </div>
