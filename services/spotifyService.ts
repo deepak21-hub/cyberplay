@@ -1,5 +1,5 @@
-// Replace with your actual Client ID from the Spotify Developer Dashboard
-export const CLIENT_ID = 'YOUR_SPOTIFY_CLIENT_ID_HERE'; // User needs to edit this manually
+// Spotify Client ID from environment variable
+export const CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID || '';
 export const REDIRECT_URI = window.location.origin + window.location.pathname;
 
 // Scopes required for playback
@@ -12,10 +12,11 @@ export const SCOPES = [
 ];
 
 export const getLoginUrl = (): string => {
-  if (CLIENT_ID === 'YOUR_SPOTIFY_CLIENT_ID_HERE') {
-    console.warn('Please update the CLIENT_ID in services/spotifyService.ts');
+  if (!CLIENT_ID) {
+    console.error('VITE_SPOTIFY_CLIENT_ID environment variable is not set!');
+    throw new Error('Spotify Client ID is not configured. Please set VITE_SPOTIFY_CLIENT_ID in your .env.local file.');
   }
-  
+
   const scopesEncoded = SCOPES.join('%20');
   return `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(
     REDIRECT_URI
